@@ -1,0 +1,23 @@
+
+String.prototype.toJadenCase = function () {
+  //split the string into an array of substrings using split function with space as the separator
+  var jadenString = "How can mirrors be real if our eyes aren't real";
+  var jadenStringArray = jadenString.split(" ");
+  //var iterationOf = "";
+  var finalResult = "";
+   //use foreach loop to run through each of the substrings
+  for (var i = 0; i < jadenStringArray.length; i++){
+      var txt = jadenStringArray[i].split("");
+      var result = "";
+      //inside the for loop turn the word into array, use toUpper on each letter at index 0
+        for (var ii = 0; ii < txt.length; ii++){
+         if (ii === 0){
+         txt[ii] = txt[ii].toUpperCase();
+         jadenStringArray[i] = txt.join("");
+         }//end if
+        }//end inner for
+  }//end outer for 
+    //concatenate the strings back together as a string.
+    finalResult += jadenStringArray.join(" ");
+  return finalResult
+};// end function toJadenCase
