@@ -1,7 +1,12 @@
 function songDecoder(song){
   /** function to "decode" a dubstep song.  
   The concept helped with my learning strings methods
-  regular expression replacement and trim.
+  regular expression replacement and trim.  I learned how to 
+  use a quantifier on a non-capturing group.  I also learned
+  that trim only removes the spaces at the end of the code.  
+  Upon submitting the following code and reviewing code
+  submitted by others: I learned that I could have made this
+  more succinct by appending the trim directly after the regex.
   **/
   var regex = /(?:WUB)+/g;
   words = song;
