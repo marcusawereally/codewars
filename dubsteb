@@ -1,0 +1,14 @@
+function songDecoder(song){
+  /** function to "decode" a dubstep song.  
+  The concept helped with my learning strings methods
+  regular expression replacement and trim.
+  **/
+  var regex = /(?:WUB)+/g;
+  words = song;
+  //use Regular Expression search to remove the WUBS
+  words = words.replace(regex,' ');
+  //use trim to clean up both sides of the string.
+  words = words.trim();
+  //return the new string to the user.
+  return words;
+}
