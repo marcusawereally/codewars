@@ -1,3 +1,22 @@
+/*
+This was my first kata on codewars, excluding the entrance kata.
+The kata gave me quite a challenge and I enjoyed working through it.
+There is something that I still don't understand about this function
+that perplexed me.  I created the code fine with a test string, but
+upon removing the test string and trying to bring in the parameter
+I noticed it would always show up as undefined.  I stumbled upon "this", 
+but unfortunately still do not have a grasp on why it was relevant in this
+instance.  I feel that it must have something to do with the way the function
+is setup.  I know that this is a function expression because I am storing it into 
+a variable for the declaration.  I also understand that it is an extension
+of String.prototype.  I feel that something about it being a function expression
+or having something to do with the fact that it was an extension of the String method.
+I will look into this and see where and why it comes into play.  
+
+I used the tools available to me to complete this kada.  I know that some of the other 
+submissions used different ways to get the job done.  I will come back and rewrite this as
+I learn more as well to see if I can make it better.
+*/
 String.prototype.toJadenCase = function () {
   //split the string into an array of substrings using split function with space as the separator
   var jadenStringArray = this.split(" ");
