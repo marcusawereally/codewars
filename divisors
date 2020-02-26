@@ -1,0 +1,24 @@
+/* Create a function named divisors/Divisors that takes an integer n > 1 and returns an array with all of the integer's divisors(except for 1 and the number itself), from smallest to largest. If the number is prime return the string '(integer) is prime' (null in C#) (use Either String a in Haskell and Result<Vec<u32>, String> in Rust). */
+
+function divisors(integer) {
+//create an array to store the divisors in.
+var divisors = [];
+  //loop through possible divisors of the number starting from 2 and ending before the actual number.  We start from two because of the requirements of the solution.  We are not to include 1 or integer itself and the function is to return the values smallest to largest.
+  for ( var i = 2; i < integer; i++ ){
+  //create a value remainder from the integer divided by i(also the iteration of the loop)
+  var remainder = integer % i;
+  //check if the remainder is equal to 0
+    if( remainder === 0){
+    //if the remainder is equal to 0 we add the divisor to the array.
+    divisors.push(i);
+    }
+  }
+  //after the for loop is done we check for prime numbers.  since we are not checking 1 and the integer itself the divisors array should be empty.  check if the divisors array is empty
+  if (divisors.length === 0){
+  //if the divisors array is empty the number is prime so we return the integer is prime
+  return integer + " is prime"
+  }else{
+  //else we return the array of divisors.
+  return divisors;
+  }
+};
