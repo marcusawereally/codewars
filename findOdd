@@ -1,0 +1,30 @@
+function findOdd(A) {
+  //happy coding!
+  //a place to store the totals number of times I found a number
+  var totals = [];
+  //loop through the array of numbers to compare
+  for ( var el = 0; el < A.length; el++){
+  //a counter to keep track of how many times I found a number.
+  var count = 0;
+    //loop through the numbers again so you can compare the current element in the first for loop to the numbers in this for loop.
+    for (var el1 = 0; el1 < A.length; el1++){
+      //compare the numbers
+      if (A[el] === A[el1]){
+      //add to count
+      count++;
+      }//end if
+    }//end inner for
+    //add the count to a new array
+    totals.push(count);
+  }//end outer for
+  //loop through the totals
+  for (var el = 0; el < totals.length; el++){
+    //check to see if the total number is odd or even
+    if (totals[el] % 2 != 0){
+    //if even return the element from the original array coresponding to the other array.
+    return A[el];
+    }//else nothing.
+  }
+  
+  return 0;
+}
