@@ -1,0 +1,43 @@
+/*
+quick and easy one.  a few gotchas that I didn't think would happen until I finished.  What to do if the number is in the single digits.
+after doing kata and seeing the submissions I went a completely different way than the other submissions.  
+
+this function was the top one.  it is pure math, while I went a way of splitting it into arrays of individual digits.  I guess I could
+just google the definition if it is math based and learn the math behind the idea before attempting in the future.
+
+I also need to figure out refactoring in code.
+
+function digital_root(n) {
+  return (n - 1) % 9 + 1;
+}
+
+
+*/
+function digital_root(n) {
+  //a tentacle to grasp the number in string format.
+  var numText = n.toString();// ...
+  //a tentacle to hold the digitalRoot
+  var digitalRoot = 0;
+  //if the length of the number is 1 it is already it's digital root
+  if (numText.length === 1){
+    //return n
+    return n;
+  //else find the digital root
+  }else{
+    //while the length of the numbers text is not equal to 1 or "in the ones place"
+    while(numText.length !== 1){
+      //loop through the elements of the numtext
+      for (var element of numText){
+        //add the current value of element to the digital root.
+        digitalRoot += parseInt(element);
+      }
+    //reset the numText to the current digital root value to act as the counter and continue the logic
+    numText = digitalRoot.toString();
+    //a tentacle to grasp the digital root into its final form.
+    var finalRoot = digitalRoot;
+    //reset the digital root for a new iteration.
+    digitalRoot = 0;
+    }
+  }
+  return finalRoot;
+}
