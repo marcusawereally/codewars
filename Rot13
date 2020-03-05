@@ -1,0 +1,44 @@
+/* this was fun.  pretty simple and straightforward.  I imagine I could have also used an object with key pairs.  Another option would 
+be to ubfuscate the cipher by using code and just having the alphabet.  That would be the key to a stronger cipher, but obviously this 
+isn't a strong cipher so what does it matter?  I believe this was the first time I used indexOf in a Kata.  very useful.  And of course
+after seeing other submissions it can be done in much shorter code:  
+
+function rot13(message) {
+  var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+  return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+}
+
+this person used replace on the string with an inline function to go through each element and replace it.  this was very concise.
+I should strive to recognize when I can use these.  Another point that this code makes is: I did not have to build the array of key/cipher
+so strictly like I did.  Any string can be an array when you iterate the strings characters.  those annoying ,'letter', could have been avoided.
+*/
+function rot13(message){
+  //define the key
+  var key = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z','a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  //define the cipher
+  var cipher = ['N','O','P','Q','R','S','T','U','V','W','X','Y','Z','A','B','C','D','E','F','G','H','I','J','K','L','M','n','o','p','q','r','s','t','u','v','w','x','y','z','a','b','c','d','e','f','g','h','i','j','k','l','m'];
+  //define a space for the code
+  var code = '';
+  //define the tentacle to grasp the element's index.
+  var elementIndex;
+  //loop through the message.
+  for (var entry of message){
+    //if the message is a space.
+    if (entry === ' '){
+      //add space to the code
+      code += ' ';
+    //if the element of the message is no in the key
+    }else if(elementIndex = key.indexOf(entry) === -1){
+      //add the direct entry to the code.
+      code += entry;
+    }else{
+      //lastly find the index of the entry in the key
+      elementIndex = key.indexOf(entry);
+      //add the cipher that corresponds to the element in the key.
+      code += cipher[elementIndex];
+    }
+  }
+  //return the code.
+  return code;
+}
