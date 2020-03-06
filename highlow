@@ -2,6 +2,16 @@
 this one was a bit tricky.  I had to make use of typeof a few times to realize that they were being passed as a string.  I read the
 instructions incorrectly.  they were "valid" int32s inside a string.  I missed the "string" part and assumed it was an array of int32s.
 I am curious to see what the solutions show and what I can learn this time.
+
+the first solution ... math.max.  I guess it goes to show that if you look into the math methods you may find what you are looking for.
+curiously though I learned something else from this.  the "map" method from arrays may be able to build the integers array along with the split.
+this could have prevented all the calls for parseInt.
+
+function highAndLow(numbers){
+  numbers = numbers.split(' ').map(Number);
+  return Math.max.apply(0, numbers) + ' ' + Math.min.apply(0, numbers);
+}
+
 */
 
 function highAndLow(numbers){
