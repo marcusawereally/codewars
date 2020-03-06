@@ -1,0 +1,28 @@
+/*
+this one was a bit tricky.  I had to make use of typeof a few times to realize that they were being passed as a string.  I read the
+instructions incorrectly.  they were "valid" int32s inside a string.  I missed the "string" part and assumed it was an array of int32s.
+I am curious to see what the solutions show and what I can learn this time.
+*/
+
+function highAndLow(numbers){
+//split the string into an array by the spaces.
+ var numArray = numbers.split(' ');
+ //declare and fill the highest to prevent undefined which will screw up the comparisons.
+ var highest = parseInt(numArray[0]);
+ //declare and fill the lowest to prevent undefined which will screw up the comparisons.
+ var lowest = parseInt(numArray[0]);
+ //loop thorugh the array
+ for (n of numArray){
+ //compare n to highest
+ if( parseInt(n) > highest){
+ //fill highest with N parsing it asn an int as well because we started with a string.
+ highest = parseInt(n);
+ //compare n to lowest.  
+ }else if(parseInt(n) < lowest){
+ //fill lowest with N
+ lowest = parseInt(n);
+ }
+ }
+ //return highest and lowest with a space between.
+ return highest + ' ' + lowest;
+}
