@@ -1,0 +1,37 @@
+/*
+another simple one.  can't wait to see the other submissions to see how even simpler it could have been.
+I really liked this solution.  it created a format and then filled in the x's with the numbers from the array.  I wonder how it does for speed?
+function createPhoneNumber(numbers){
+  var format = "(xxx) xxx-xxxx";
+  
+  for(var i = 0; i < numbers.length; i++)
+  {
+    format = format.replace('x', numbers[i]);
+  }
+  
+  return format;
+}
+
+I like this one as well.  It used substring feature of the arrays to create it.
+
+function createPhoneNumber(numbers){
+  numbers = numbers.join('');
+  return '(' + numbers.substring(0, 3) + ') ' 
+      + numbers.substring(3, 6) 
+      + '-' 
+      + numbers.substring(6);
+}
+
+of course there were capture group examples as well using regex.  that may be the most elegant.  I'll have to compare to see which one is speediest.
+*/
+
+function createPhoneNumber(numbers){
+  //add first parenthesis
+  numbers.splice(0,0,'(');
+  //add second parenthesis and space
+  numbers.splice(4,0,') ');
+  //add dash
+  numbers.splice(8,0,'-');
+  //return joined together.
+  return numbers.join('');
+}
