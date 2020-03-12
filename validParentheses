@@ -1,0 +1,22 @@
+function validParentheses(parens){
+  var open = 0;
+  var close = 0;
+  
+  for ( var p in parens){
+  //if you have a closing parenthesis before an open or too many closes before an open it automatically is false.
+      if (close > open) return false;
+      //count the parenthisis.
+      if ( parens[p] === '(' ){
+      open++;
+      }else if( parens[p] === ')'){
+      close++;
+      }
+  }
+  //if open === close and it passes the above test it is true.
+  if (open === close){
+  return true;
+  }else{
+  //all else is false.
+  return false;
+  }
+}
