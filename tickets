@@ -1,0 +1,57 @@
+function tickets(peopleInLine){
+//a tenticle to hold the value of change
+var change = {};
+//a tenticle to hold on to what is important in the register. how many bills we have.  how to break the bills.  what the total of the register is.
+var register = {
+  25: 0,
+  50: 0,
+  100: 0,
+  total: function(register){ var total = 0; total += register[25] * 25; total += register[50] * 50; total += register[100] * 100; return total; },
+  breakBill: function breakBill(bill, register){ 
+  var change = {}; 
+  if(bill === 100){  
+    if (register[50] >= 1 && register[25] >= 1){ 
+    change = { 50: -1, 25: -1 };
+    return change;
+    }else if(register[25] >= 3){
+    change = { 25: -3 };
+    return change;
+    }else{
+      return false;
+    }
+}
+if(bill === 50 && register[25]){
+change = {25: -1};
+return change;
+}
+}
+}
+  
+var ticket = 25;
+  //for each person in line
+  for(var bill of peopleInLine){
+    //if the bill is just 25 we just add to register.
+    if(bill === 25){
+    register[25] += 1;
+    //if the bill minus the ticket price is greater than the total amount of money in the register we know we cannot break the bill break it to the poor guy quickly.
+      }else if(bill - ticket > register.total(register)){
+      return 'NO';
+      //now if the bill is possibly breakable.
+      }else if(bill - ticket <= register.total(register) && register.breakBill(bill,register)){
+      //we break the bill
+         change = register.breakBill(bill,register);
+         //then we add the new bill to the register;
+         register[bill] += 1;
+         //and distribute the change;
+        if(change[25]) {register[25] = register[25] + change[25];}
+        if(change[50]) {register [50] = register[50] + change[50];}
+        if(change[100]) {register [100] = register[100] + change[100];}
+      }else{
+        //if all else fails, it is a no.
+        return 'NO';
+      }
+  
+  }
+  //alas all good things come to an end and we have a yes.
+return 'YES';
+}
